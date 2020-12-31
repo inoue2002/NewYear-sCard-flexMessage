@@ -1,7 +1,12 @@
 <template>
   <v-app dark>
     <v-app-bar fixed app color="#00db45">
-      <v-toolbar-title v-text="title" />
+      <nuxt-link to="/" class="title head-text pa-0 cursor: pointer;">
+        <v-img
+          max-width="125px"
+          src="https://pbs.twimg.com/media/EqkaANTUcAEe0RO?format=jpg&name=small"
+        />
+      </nuxt-link>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -16,28 +21,29 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       clipped: false,
       drawer: false,
       fixed: false,
       items: [
         {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
+          icon: "mdi-apps",
+          title: "Welcome",
+          to: "/",
         },
         {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
+          icon: "mdi-chart-bubble",
+          title: "Inspire",
+          to: "/inspire",
+        },
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'LINEで年賀状'
-    }
-  }
-}
+      title: "LINEで年賀状",
+    };
+  },
+};
 </script>
+
