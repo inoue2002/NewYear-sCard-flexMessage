@@ -50,57 +50,77 @@ export default {
           .shareTargetPicker([
             ///ターゲットぴっかーで送るメッセージはここから
             {
-              type: "flex",
-              altText: "flexMessageです",
-              contents: {
-  "type": "bubble",
-  "direction": "ltr",
-  "header": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Header",
-        "align": "center",
-        "contents": []
-      }
-    ]
-  },
-  "hero": {
-    "type": "image",
-    "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
-    "size": "full",
-    "aspectRatio": "1.51:1",
-    "aspectMode": "fit"
-  },
-  "body": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "text",
-        "text": "Body",
-        "align": "center",
-        "contents": []
-      }
-    ]
-  },
-  "footer": {
-    "type": "box",
-    "layout": "horizontal",
-    "contents": [
-      {
-        "type": "button",
-        "action": {
-          "type": "uri",
-          "label": "Button",
-          "uri": "https://linecorp.com"
-        }
-      }
-    ]
-  }
-},
+              type: "bubble",
+              direction: "ltr",
+              header: {
+                type: "box",
+                layout: "vertical",
+                position: "relative",
+                contents: [
+                  {
+                    type: "text",
+                    text: "はっぴーにゅーいやー!!",
+                    weight: "bold",
+                    size: "md",
+                    color: "#3C2626FF",
+                    align: "center",
+                    wrap: true,
+                    contents: [],
+                  },
+                ],
+              },
+              hero: {
+                type: "image",
+                url:
+                  "https://online.brother.co.jp/BOL/Handlers/DownloadContents400x400.ashx?id=6db6456c-99b9-4a7c-8011-aac4ef92544f",
+                margin: "none",
+                size: "3xl",
+                aspectRatio: "1.51:1",
+                aspectMode: "fit",
+                position: "relative",
+              },
+              body: {
+                type: "box",
+                layout: "vertical",
+                spacing: "none",
+                margin: "none",
+                contents: [
+                  {
+                    type: "text",
+                    text: "今年もよろしくお願いします！",
+                    align: "center",
+                    wrap: true,
+                    contents: [],
+                  },
+                  {
+                    type: "text",
+                    text: "ようかんより",
+                    align: "end",
+                    wrap: true,
+                    contents: [],
+                  },
+                ],
+              },
+              footer: {
+                type: "box",
+                layout: "horizontal",
+                contents: [
+                  {
+                    type: "box",
+                    layout: "vertical",
+                    contents: [
+                      {
+                        type: "button",
+                        action: {
+                          type: "uri",
+                          label: "LINE専用の年賀状を作る",
+                          uri: "https://linecorp.com",
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
             },
             /////ターゲットぴっかーで送るのはここまで
           ])
