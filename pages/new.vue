@@ -10,7 +10,7 @@
         />
         <form class="button_form_center" style="margin-top: 30px">
           <v-btn @click="click" Block color="#0075c2">
-            <span style="color: white" 
+            <span style="color: white"
               >今すぐオリジナル年賀状を作る!!</span
             ></v-btn
           >
@@ -36,6 +36,25 @@ export default {
       userName: "",
       res: "",
     };
+  },
+  async mounted() {
+    await liff
+      .init({
+        liffId: "1655537683-Qgj6p10A",
+      })
+      .catch((err) => {
+        this.res = "initErr";
+      })
+      .then((data) => {
+        console.log(`init完了`);
+      });
+
+    // ログインチェック
+    if (liff.isLoggedIn()) {
+    } else {
+      // ログインまだ
+      liff.login();
+    }
   },
   methods: {
     click() {
