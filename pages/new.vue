@@ -2,7 +2,85 @@
   <div>
     <v-row justify="center" style="margin-top: 10px">
       <v-col cols="11" md="8">
+        <v-stepper v-model="e1">
+          <v-stepper-header>
+            <template v-for="n in steps">
+              <v-stepper-step
+                :key="`${n}-step`"
+                :complete="e1 > n"
+                :step="n"
+                editable
+              >
+                Step {{ n }}
+              </v-stepper-step>
 
+              <v-divider v-if="n !== steps" :key="n"></v-divider>
+            </template>
+          </v-stepper-header>
+
+          <v-stepper-items>
+            <v-stepper-content
+              v-for="n in steps"
+              :key="`${n}-content`"
+              :step="n"
+            >
+              <!-- タイトルを決めてもらう -->
+              <v-card class="mb-12" color="" height="200px" v-if="n === 1" flat　style='margin-bottom:100px'>
+                <v-row justify="center" align-content="center">
+                  <v-col cols="12">
+                    <p><v-text>タイトルを入力してください</v-text></p>
+                    <v-textarea
+                    v-model="titile"
+                      auto-grow
+                      outlined
+                      rows="1"
+                      row-height="15"
+                    ></v-textarea>
+                    <v-img
+                      width="40%"
+                      src="https://pbs.twimg.com/media/EqkS1AOVgAAbEZT?format=png&name=240x240"
+                    />
+                  </v-col>
+                </v-row>
+              </v-card>
+              <!-- 画像を決めてもらう -->
+              <v-card class="mb-12" color="" height="200px" v-if="n === 2" flat>
+                <v-row justify="center">
+                  <v-col cols="12">
+                    <p><v-text>現在は選択できません。そのまま次へ進んでください</v-text></p>
+                     </v-col>
+                </v-row>
+              </v-card>
+
+              <!-- コンテンツを決めてもらう　メッセージと誰からか -->
+              <v-card class="mb-12" color="" height="200px" v-if="n === 3" flat>
+                <v-row justify="center">
+                  <v-col cols="12">
+                    <v-textarea
+                     v-model="message"
+                      name="input-7-4"
+                      label="Message"
+                    ></v-textarea>
+                    <v-textarea
+                     v-model="from"
+                      label="YourName"
+                      auto-grow
+                      outlined
+                      rows="1"
+                      row-height="15"
+                    ></v-textarea>
+                  </v-col>
+                </v-row>
+              </v-card>
+              <v-col style="margin-top:20px">
+              <v-btn v-if="n === 1 ||n === 2  " color="primary" @click="nextStep(n)" > Continue </v-btn>
+              <v-btn v-else color="#00db45" @click="click">
+                送信
+              </v-btn>
+              </v-col>
+            </v-stepper-content>
+          </v-stepper-items>
+        </v-stepper>
       </v-col>
     </v-row>
   </div>
@@ -10,14 +88,14 @@
 
 <script>
 export default {
-  components: {
-  },
+  components: {},
   data() {
     return {
-      id: 0,
-      userInfo: "",
-      userName: "",
-      res: "",
+      e1: 1,
+      steps: 3,
+      titile: "はっぴーにゅーいやー",
+      message: "あけましておめでとうございます!!",
+      from: "田中",
     };
   },
   async mounted() {
@@ -36,8 +114,15 @@ export default {
     if (liff.isLoggedIn()) {
     } else {
       // ログインまだ
-     // liff.login();
+      // liff.login();
     }
+  },
+  watch: {
+    steps(val) {
+      if (this.e1 > val) {
+        this.e1 = val;
+      }
+    },
   },
   methods: {
     click() {
@@ -59,7 +144,7 @@ export default {
                   contents: [
                     {
                       type: "text",
-                      text: "はっぴーにゅーいやー!!",
+                      text: `${this.titile}`,
                       weight: "bold",
                       size: "md",
                       color: "#3C2626FF",
@@ -87,7 +172,7 @@ export default {
                   contents: [
                     {
                       type: "text",
-                      text: "今年もよろしくお願いします！",
+                      text: `${this.message}`,
                       weight: "bold",
                       size: "sm",
                       align: "center",
@@ -97,7 +182,7 @@ export default {
                     },
                     {
                       type: "text",
-                      text: "ようかんより",
+                      text: `${this.from}より`,
                       weight: "bold",
                       size: "xs",
                       align: "end",
@@ -150,6 +235,13 @@ export default {
             // something went wrong before sending a message
             console.log("something wrong happen");
           });
+      }
+    },
+    nextStep(n) {
+      if (n === this.steps) {
+        this.e1 = 1;
+      } else {
+        this.e1 = n + 1;
       }
     },
   },
