@@ -37,7 +37,7 @@
                       row-height="15"
                     ></v-textarea>
                     <v-img
-                      width="40%"
+                      width="20%"
                       src="https://pbs.twimg.com/media/EqkS1AOVgAAbEZT?format=png&name=240x240"
                     />
                   </v-col>
@@ -47,8 +47,17 @@
               <v-card class="mb-12" color="" height="200px" v-if="n === 2" flat>
                 <v-row justify="center">
                   <v-col cols="12">
-                    <p><v-text>現在は選択できません。そのまま次へ進んでください</v-text></p>
-                     </v-col>
+                    <p><v-text>現在は選択できません。そのまま次へ進んでください。jpgの画像URLをお持ちの方は下記に入力してください。</v-text></p>
+                   <v-textarea
+                    v-model="url"
+                      auto-grow
+                      outlined
+                      rows="1"
+                      row-height="15"
+                    ></v-textarea>
+                    <p><v-text>▼プレビュー</v-text></p>
+                    <v-img width=10% :src='url' />
+                    </v-col>
                 </v-row>
               </v-card>
 
@@ -95,6 +104,7 @@ export default {
       steps: 3,
       titile: "はっぴーにゅーいやー",
       message: "あけましておめでとうございます!!",
+      url : 'https://online.brother.co.jp/BOL/Handlers/DownloadContents400x400.ashx?id=6db6456c-99b9-4a7c-8011-aac4ef92544f',
       from: "田中",
     };
   },
@@ -157,7 +167,7 @@ export default {
                 hero: {
                   type: "image",
                   url:
-                    "https://online.brother.co.jp/BOL/Handlers/DownloadContents400x400.ashx?id=6db6456c-99b9-4a7c-8011-aac4ef92544f",
+                    `${this.url}`,
                   margin: "none",
                   size: "3xl",
                   aspectRatio: "1.51:1",
