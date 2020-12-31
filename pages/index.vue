@@ -40,14 +40,12 @@ export default {
   },
   methods: {
     click() {
-      if (liff.isApiAvailable("shareTargetPicker")) {
-        liff.shareTargetPicker([
-          {
-            type: "text",
-            text: "Hello, World!",
-          },
-        ]);
-      }
+      liff.shareTargetPicker([
+        {
+          type: "text",
+          text: "Hello, World!",
+        },
+      ]);
     },
   },
 };
