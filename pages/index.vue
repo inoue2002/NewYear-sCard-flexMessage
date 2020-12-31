@@ -14,7 +14,7 @@
           src="https://pbs.twimg.com/media/EqkFdACU0AEE0Qu?format=jpg&name=medium"
         />
         <form class="button_form_center" style="margin-top: 30px">
-          <v-btn Block color="0096db" href='new'>
+          <v-btn Block color="00db45" href='new'>
             <span style="color: white" 
               >今すぐオリジナル年賀状を作る!!</span
             ></v-btn
