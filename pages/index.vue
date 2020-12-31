@@ -26,13 +26,9 @@
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import VuetifyLogo from "~/components/VuetifyLogo.vue";
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo,
   },
   data() {
     return {
@@ -58,7 +54,7 @@ export default {
     if (liff.isLoggedIn()) {
     } else {
       // ログインまだ
-      liff.login();
+      //liff.login();
     }
   },
   methods: {

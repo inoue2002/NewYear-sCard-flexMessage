@@ -1,33 +1,16 @@
 <template>
   <div>
-    <!-- <v-btn @click="click"> hello </v-btn> -->
     <v-row justify="center" style="margin-top: 10px">
       <v-col cols="11" md="8">
-        <p><v-text>▼以下のような年賀状を作成&送信できます</v-text></p>
-        <v-img
-          width="70%"
-          src="https://pbs.twimg.com/media/EqkFdACU0AEE0Qu?format=jpg&name=medium"
-        />
-        <form class="button_form_center" style="margin-top: 30px">
-          <v-btn @click="click" Block color="#0075c2">
-            <span style="color: white"
-              >今すぐオリジナル年賀状を作る!!</span
-            ></v-btn
-          >
-        </form>
+
       </v-col>
     </v-row>
   </div>
 </template>
 
 <script>
-import Logo from "~/components/Logo.vue";
-import VuetifyLogo from "~/components/VuetifyLogo.vue";
-
 export default {
   components: {
-    Logo,
-    VuetifyLogo,
   },
   data() {
     return {
@@ -53,7 +36,7 @@ export default {
     if (liff.isLoggedIn()) {
     } else {
       // ログインまだ
-      liff.login();
+     // liff.login();
     }
   },
   methods: {
