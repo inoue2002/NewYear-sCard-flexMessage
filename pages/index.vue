@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-btn @click="click"> hello </v-btn>
+    {{id}}
   </div>
 </template>
 
@@ -15,7 +16,7 @@ export default {
   },
   data() {
     return {
-      id: "",
+      id: 0,
       userInfo: "",
       userName: "",
       res: "",
@@ -40,7 +41,9 @@ export default {
   },
   methods: {
     click() {
+      this.id = this.id +1
       if (liff.isApiAvailable("shareTargetPicker")) {
+        console.log(liff.isApiAvailable("shareTargetPicker"))
         liff.shareTargetPicker([
           {
             type: "text",
