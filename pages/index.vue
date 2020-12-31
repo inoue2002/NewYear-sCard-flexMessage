@@ -30,7 +30,9 @@ export default {
       .catch((err) => {
         this.res = "initErr";
       })
-      .then((data) => {console.log(`init完了`)});
+      .then((data) => {
+        console.log(`init完了`);
+      });
 
     // ログインチェック
     if (liff.isLoggedIn()) {
@@ -42,14 +44,65 @@ export default {
   methods: {
     click() {
       this.id = this.id + 1;
-      console.log(`trueOrFolse`,liff.isApiAvailable("shareTargetPicker"))
+      console.log(`trueOrFolse`, liff.isApiAvailable("shareTargetPicker"));
       if (liff.isApiAvailable("shareTargetPicker")) {
         liff
           .shareTargetPicker([
+            ///ターゲットぴっかーで送るメッセージはここから
             {
-              type: "text",
-              text: "Hello, World!",
+              type: "flex",
+              altText: "flexMessageです",
+              contents: {
+  "type": "bubble",
+  "direction": "ltr",
+  "header": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Header",
+        "align": "center",
+        "contents": []
+      }
+    ]
+  },
+  "hero": {
+    "type": "image",
+    "url": "https://vos.line-scdn.net/bot-designer-template-images/bot-designer-icon.png",
+    "size": "full",
+    "aspectRatio": "1.51:1",
+    "aspectMode": "fit"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Body",
+        "align": "center",
+        "contents": []
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "Button",
+          "uri": "https://linecorp.com"
+        }
+      }
+    ]
+  }
+},
             },
+            /////ターゲットぴっかーで送るのはここまで
           ])
           .then(function (res) {
             if (res) {
