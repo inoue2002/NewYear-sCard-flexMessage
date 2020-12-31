@@ -30,7 +30,7 @@ export default {
       .catch((err) => {
         this.res = "initErr";
       })
-      .then((data) => {});
+      .then((data) => {console.log(`init完了`)});
 
     // ログインチェック
     if (liff.isLoggedIn()) {
@@ -42,7 +42,7 @@ export default {
   methods: {
     click() {
       this.id = this.id + 1;
-
+      console.log(`trueOrFolse`,liff.isApiAvailable("shareTargetPicker"))
       if (liff.isApiAvailable("shareTargetPicker")) {
         liff
           .shareTargetPicker([
