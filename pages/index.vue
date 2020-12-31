@@ -51,7 +51,7 @@ export default {
             ///ターゲットぴっかーで送るメッセージはここから
             {
               type: "flex",
-              altText: "flexMessageです",
+              altText: "年賀状が届きました!!",
               contents: {
                 type: "bubble",
                 direction: "ltr",
@@ -91,14 +91,20 @@ export default {
                     {
                       type: "text",
                       text: "今年もよろしくお願いします！",
+                      weight: "bold",
+                      size: "sm",
                       align: "center",
+                      margin: "none",
                       wrap: true,
                       contents: [],
                     },
                     {
                       type: "text",
                       text: "ようかんより",
+                      weight: "bold",
+                      size: "xs",
                       align: "end",
+                      margin: "sm",
                       wrap: true,
                       contents: [],
                     },
@@ -109,18 +115,12 @@ export default {
                   layout: "horizontal",
                   contents: [
                     {
-                      type: "box",
-                      layout: "vertical",
-                      contents: [
-                        {
-                          type: "button",
-                          action: {
-                            type: "uri",
-                            label: "LINE専用の年賀状を作る",
-                            uri: "https://linecorp.com",
-                          },
-                        },
-                      ],
+                      type: "button",
+                      action: {
+                        type: "uri",
+                        label: " by New Year's Card",
+                        uri: "https://liff.line.me/1655537683-Qgj6p10A",
+                      },
                     },
                   ],
                 },
