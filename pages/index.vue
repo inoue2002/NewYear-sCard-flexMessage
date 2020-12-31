@@ -29,8 +29,7 @@ export default {
       .catch((err) => {
         this.res = "initErr";
       })
-      .then((data) => {
-      });
+      .then((data) => {});
 
     // ログインチェック
     if (liff.isLoggedIn()) {
@@ -41,8 +40,14 @@ export default {
   },
   methods: {
     click() {
-      const profile = liff.getProfile();
-      console.log(profile);
+      if (liff.isApiAvailable("shareTargetPicker")) {
+        liff.shareTargetPicker([
+          {
+            type: "text",
+            text: "Hello, World!",
+          },
+        ]);
+      }
     },
   },
 };
