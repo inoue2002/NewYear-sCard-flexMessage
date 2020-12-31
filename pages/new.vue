@@ -124,7 +124,7 @@ export default {
     if (liff.isLoggedIn()) {
     } else {
       // ログインまだ
-      // liff.login();
+       liff.login();
     }
   },
   watch: {
